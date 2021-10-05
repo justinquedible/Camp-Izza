@@ -1,0 +1,9 @@
+#This is for google app engine deployment
+
+runtime: java11
+env: standard
+instance_class: F4
+
+handlers:
+  - url: /.*
+    script: this field is required, but ignored
