@@ -51,6 +51,9 @@ I like to include the -X flag because it showed me logging information that help
 
 Open http://localhost:8080 to send your GET and POST requests
 
+## Troubleshooting
+- Error when running springboot: https://cloud.google.com/docs/authentication/getting-started#cloud-console
+
 ## Tips for Sending Requests Between Cloud SQL and local spring-boot
 - There are many connectivity options to choose from:\
 https://cloud.google.com/sql/docs/mysql/connect-overview
