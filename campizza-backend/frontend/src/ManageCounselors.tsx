@@ -1,3 +1,5 @@
+// Page for admin to view, approve, deny, and activate counselors
+
 import React from 'react';
 import {Button, Card, CardColumns, Container} from "react-bootstrap";
 import './Dashboard.css';

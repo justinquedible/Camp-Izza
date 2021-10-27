@@ -1,3 +1,5 @@
+// Page for admin to view groups and add/remove campers/counselors to groups
+
 import React from 'react';
 import {Button, Container, Modal} from "react-bootstrap";
 import './Dashboard.css';

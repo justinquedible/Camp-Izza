@@ -1,3 +1,5 @@
+// Page for admin to view campers' attendance
+
 import React, {ReactNode, Fragment, MouseEvent} from 'react';
 import {
     Button,

@@ -1,3 +1,5 @@
+// Page for admin to edit camper's information form
+
 import React from 'react';
 import {Button, Container} from "react-bootstrap";
 import './HouseholdForm.css';

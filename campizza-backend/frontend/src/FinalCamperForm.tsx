@@ -1,3 +1,5 @@
+// Page for parents to fill out their child's camper form
+
 import React from 'react';
 import {Button, Container} from "react-bootstrap";
 import './HouseholdForm.css';

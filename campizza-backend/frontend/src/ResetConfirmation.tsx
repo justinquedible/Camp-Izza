@@ -1,3 +1,5 @@
+// Page that shows a message to the user that their password has been reset
+
 import React from 'react';
 
 import {FormControl, Form, Button} from 'react-bootstrap';

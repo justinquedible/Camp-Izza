@@ -1,3 +1,5 @@
+// Page for counselors to see after they create an account and are waiting for approval
+
 import React, {Component} from 'react';
 import {Button, Container, Row, Col} from 'react-bootstrap';
 import './Dashboard.css';

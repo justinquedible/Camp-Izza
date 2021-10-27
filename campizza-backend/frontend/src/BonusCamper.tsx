@@ -1,3 +1,6 @@
+// Page for bonus campers, not used anywhere
+// Not sure what this page does yet
+
 import React from 'react';
 import {Button, Container} from "react-bootstrap";
 import './Dashboard.css';

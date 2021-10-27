@@ -1,3 +1,5 @@
+// Page for parents to checkout so they can pay for the camp
+
 import React, {Component, useState} from 'react';
 import {Button, Container, Row, Col} from 'react-bootstrap';
 import './HouseholdForm.css';

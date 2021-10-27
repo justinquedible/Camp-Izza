@@ -1,3 +1,6 @@
+// Page for parents to view their child's weekly schedule for the camp
+// Parents can register their child for specific weeks and go to checkout
+
 import React, {Component} from 'react';
 import {Button, Container, Row, Col, Card, CardColumns, CardDeck, Table} from 'react-bootstrap';
 import './HouseholdForm.css';

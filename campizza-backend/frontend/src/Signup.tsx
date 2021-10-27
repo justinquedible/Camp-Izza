@@ -1,3 +1,5 @@
+// Page for parents to sign up
+
 import React from 'react';
 
 import {Redirect} from 'react-router-dom';

@@ -1,3 +1,5 @@
+// Page for admin to view/edit camper info, adjust credit, delete campers, view attendance report, and view emergency form
+
 import React, {Component} from 'react';
 import {Button, Container, Row, Col, CardDeck, Card, Modal} from 'react-bootstrap';
 import './Dashboard.css';

@@ -1,6 +1,6 @@
+// Component used in Parent.tsx to display a list of campers of a parent
+
 import * as React from 'react'
-
-
 import axios from "axios";
 import {Card, CardColumns} from "react-bootstrap";
 import AuthService from "./services/auth-service";

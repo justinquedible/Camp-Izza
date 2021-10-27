@@ -1,3 +1,5 @@
+// Page for parents to view their children that they registered to be campers
+
 import React, {Component, useState} from 'react';
 import {ToggleButtonGroup, ToggleButton,ButtonGroup,Button, CardDeck,Card,Container, Row, Col} from 'react-bootstrap';
 import './Dashboard.css';

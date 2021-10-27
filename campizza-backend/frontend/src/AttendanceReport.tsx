@@ -1,3 +1,5 @@
+// Page that is unused because it is already integrated in NewManageCampers.tsx
+
 import React from 'react';
 import {Button, Card, Container} from "react-bootstrap";
 import './Dashboard.css';

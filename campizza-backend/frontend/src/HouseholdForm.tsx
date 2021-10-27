@@ -1,3 +1,5 @@
+// Page for parents to view and edit their household information
+
 import React, {Component, useEffect, useState} from 'react';
 import {Button, Container, Row, Col} from 'react-bootstrap';
 import './HouseholdForm.css';
