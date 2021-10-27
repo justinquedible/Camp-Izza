@@ -1,3 +1,5 @@
+// Page for admin to filter and view camp roster
+
 import React, { Component } from 'react';
 import {Button, Container, Table} from "react-bootstrap";
 import './Dashboard.css';

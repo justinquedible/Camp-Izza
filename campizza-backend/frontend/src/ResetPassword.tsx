@@ -1,3 +1,5 @@
+// Page for users to reset their password
+
 import React from 'react';
 
 import {Redirect} from 'react-router-dom';

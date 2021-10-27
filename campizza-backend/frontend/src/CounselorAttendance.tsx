@@ -1,3 +1,5 @@
+// Page for counselor to view and take attendance of their group
+
 import React, {ReactNode, Fragment, MouseEvent} from 'react';
 import {
     Button,

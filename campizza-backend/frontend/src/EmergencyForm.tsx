@@ -1,3 +1,5 @@
+// Page for admin to view a camper's emergency form
+
 import React, {Component} from 'react';
 import {Button, Container, Row, Col} from 'react-bootstrap';
 import './Dashboard.css';

@@ -1,3 +1,5 @@
+// Page that users see when they updated their password successfully
+
 import React from 'react';
 
 import {Redirect} from 'react-router-dom';

@@ -1,3 +1,5 @@
+// Page for admin to view and edit camp groups, dates, and pricing
+
 import React from 'react';
 import {Button, Container, Modal} from "react-bootstrap";
 import './Dashboard.css';

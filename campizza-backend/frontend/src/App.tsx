@@ -1,3 +1,5 @@
+// Contains the url path for each file
+
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';

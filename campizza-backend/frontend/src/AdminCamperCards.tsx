@@ -1,3 +1,5 @@
+// Component that is unused but imported in ManageCampers page
+
 import {Button, Card, CardDeck, Container} from "react-bootstrap";
 import React from "react";
 import AdminService from './services/admin-service';

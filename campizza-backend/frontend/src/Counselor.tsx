@@ -1,3 +1,5 @@
+// Page for counselors to view their dashboard
+
 import React from 'react';
 import {Button, Card, Container} from "react-bootstrap";
 import './Dashboard.css';

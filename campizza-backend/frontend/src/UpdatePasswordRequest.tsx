@@ -1,3 +1,5 @@
+// Page for users to update their password
+
 import React from 'react';
 
 import {useParams } from 'react-router-dom';
