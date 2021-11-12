@@ -93,13 +93,14 @@ export const AdminCamperForm: React.FC<Props> = () => {
         let named:string | null;
         name = localStorage.getItem("currentChild");
         let camper = localStorage.getItem("currentChildID")
-        if (typeof name =="string" && name !=""){
+        if (typeof name =="string" && name !==""){
             named = name;
+            console.log("hello");
             CamperService.getCamperInfo(camper).then(response => {
-                if (response.status==200){
+                if (response.status===200){
                     setValues(response.data);
                 }
-                else if (response.status==400){
+                else if (response.status===400){
                     return false;
                 }
 

@@ -42,6 +42,10 @@ interface Props {
 export const FinalCamperForm: React.FC<Props> = () => {
     const [showDelForm, setDelForm] = React.useState(false);
 
+    // For making first and last names readonly if its already set
+    const [initFirstName, setInitFirstName] = React.useState("");
+    const [initLastName, setInitLastName] = React.useState("");
+
     const DelForm = () => <div className="form-popup" id="myForm">
         <form className="form-container center" >
             <p> Are you sure you want to delete this camper? </p>
@@ -98,6 +102,8 @@ export const FinalCamperForm: React.FC<Props> = () => {
             CamperService.getInfo(named, user_id).then(response => {
                 if (response.status===200){
                     setValues(response.data);
+                    setInitFirstName(response.data.firstName);
+                    setInitLastName(response.data.lastName);
                 }
                 else if (response.status===400){
                     return false;
@@ -105,7 +111,7 @@ export const FinalCamperForm: React.FC<Props> = () => {
 
             })
         }
-
+        
 
     }, [])
 
@@ -161,19 +167,28 @@ export const FinalCamperForm: React.FC<Props> = () => {
                     <br/><br/>
                     <h3> Camper Form </h3>
                     <br/>
-                    <p><b>* </b>indicates a mandatory field.</p>
+                    <p><b>* </b>Indicates a mandatory field.</p>
                     <p>Note: Please email omarezz@gmail.com to change camper's name</p>
                     <h5> Camper Info </h5>
 
                     <p><b>* </b>First Name</p>
-                    
-                    <input type="text" required readOnly={values.firstName !== ""}
-                           onChange={handleChange('firstName')} defaultValue={values.firstName}/>
+
+                    {initFirstName === "" ? 
+                        <input type="text2" required readOnly={initFirstName !== ""}
+                            onChange={handleChange('firstName')} defaultValue={values.firstName}/>
+                    :
+                        <p style={{marginBottom: 15, color:"#949494"}}>{values.firstName}</p>
+                    }
 
                     <p><b>* </b>Last Name</p>
-                    <input type="text" required readOnly={values.firstName !== ""}
-                           onChange={handleChange('lastName')} defaultValue={values.lastName}/>
-                           
+
+                    {initLastName === "" ? 
+                        <input type="text2" required readOnly={initLastName !== ""} 
+                            onChange={handleChange('lastName')} defaultValue={values.lastName}
+                            />
+                    :
+                        <p style={{marginBottom: 15, color:"#949494"}}>{values.lastName}</p>
+                    }
                     <p><b>* </b>School Name</p>
                     <input type="text" required
                            onChange={handleChange('schoolName')} defaultValue={values.schoolName}/>
