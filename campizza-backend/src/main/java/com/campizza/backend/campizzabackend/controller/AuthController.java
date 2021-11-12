@@ -81,10 +81,10 @@ public class AuthController {
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
         List<String> roles = userDetails.getAuthorities().stream().map(item -> item.getAuthority())
                 .collect(Collectors.toList());
-        System.out.println("in signin");
-        System.out.println(roles);
+        // System.out.println("in signin");
+        // System.out.println(roles);
         for (int i = 0; i < roles.size(); i++){
-            System.out.println(roles.get(i));
+            // System.out.println(roles.get(i));
         }
         return ResponseEntity.ok(new JwtResponse(jwt, userDetails.getId(), userDetails.getFirstName(),
                 userDetails.getLastName(), userDetails.getEmail(),userDetails.getGroup(), roles));
@@ -95,8 +95,8 @@ public class AuthController {
         if (userRepository.existsByEmail(signupRequest.getEmail())) {
             return ResponseEntity.badRequest().body(new MessageResponse("Error: Email is already in use!"));
         }
-        System.out.println("in signup");
-        System.out.println(signupRequest.getRoles());
+        // System.out.println("in signup");
+        // System.out.println(signupRequest.getRoles());
         User user = new User(signupRequest.getFirstName(), signupRequest.getLastName(),
                 signupRequest.getEmail(),
                 encoder.encode(signupRequest.getPassword()));
@@ -243,8 +243,8 @@ public class AuthController {
     @CrossOrigin
     @PostMapping("/change-counselor-active")
     public ResponseEntity<?> changeCounselorRole(@Valid @RequestBody ChangeCounselorRequest counselorRequest) {
-        System.out.println(counselorRequest.getId());
-        System.out.println(counselorRequest.getRole());
+        // System.out.println(counselorRequest.getId());
+        // System.out.println(counselorRequest.getRole());
         Optional<User> counselor = userRepository.findById(counselorRequest.getId());
 
         if( counselor != null){

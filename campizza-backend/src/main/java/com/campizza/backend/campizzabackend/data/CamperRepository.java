@@ -5,6 +5,7 @@ import com.campizza.backend.campizzabackend.model.Camper;
 import com.campizza.backend.campizzabackend.model.User;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Repository;
@@ -17,6 +18,8 @@ import java.util.Set;
 
 @Repository
 public interface CamperRepository extends JpaRepository<Camper, Long> {
+        // TODO:  Need to implement the functions below this without any SQL code. 
+
     List<Camper> findByUser_Id(Long id);
 
     List<Camper> findByGroup(String group);
@@ -35,9 +38,14 @@ public interface CamperRepository extends JpaRepository<Camper, Long> {
 
     Optional<Camper> findCamperById(Long id);
 
+
+    @Modifying
+    @Query(value =
+        "delete from campers where " +
+        "id = :id",
+        nativeQuery = true
+    )
     void deleteCamperById(Long id);
-
-
 
 
     @Query(value =

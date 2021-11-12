@@ -8,6 +8,7 @@
         <version>2.4.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+    <packaging>jar</packaging>
     <groupId>com.campizza.backend</groupId>
     <artifactId>campizza-backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -185,6 +186,17 @@
                 <groupId>com.google.cloud.tools</groupId>
                 <artifactId>appengine-maven-plugin</artifactId>
                 <version>2.2.0</version>
+                <configuration>
+                    <deploy.projectId>rugged-sunbeam-229808</deploy.projectId>
+                    <deploy.version>GCLOUD_CONFIG</deploy.version>
+                    <!-- <project-id>${project.artifactId}</project-id>
+                    <version>${project.version}</version> -->
+                    <!-- <deploy-path>/${project.artifactId}</deploy-path>
+                    <runtime-version>1.9.0</runtime-version>
+                    <runtime-configuration>
+                        <runtime-configuration-id>default</runtime-configuration-id>
+                    </runtime-configuration> -->
+                </configuration>
             </plugin>
         </plugins>
     </build>

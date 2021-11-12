@@ -146,12 +146,12 @@ public class RegisteredWeeksController {
         Camper camper = campers.get();
 
         // Have Camper Info
-        System.out.println("In weeks");
-        System.out.println(camper.getId());
-        System.out.println(camper.getUser());
-        System.out.println(camper.getUser().getFirstName());
+        // System.out.println("In weeks");
+        // System.out.println(camper.getId());
+        // System.out.println(camper.getUser());
+        // System.out.println(camper.getUser().getFirstName());
         Optional<HouseHold> parent = parentRepository.findByUser(camper.getUser());
-        System.out.println(parent);
+        // System.out.println(parent);
 
         // Schedule Info
         List<Weeks> programWeeks = registeredWeeksService.getWeeksAll(currentYear);
@@ -203,12 +203,12 @@ public class RegisteredWeeksController {
 
         for (Camper camper: campers) {
             // Have Camper Info
-            System.out.println("In weeks");
-            System.out.println(camper.getId());
-            System.out.println(camper.getUser());
-            System.out.println(camper.getUser().getFirstName());
+            // System.out.println("In weeks");
+            // System.out.println(camper.getId());
+            // System.out.println(camper.getUser());
+            // System.out.println(camper.getUser().getFirstName());
             Optional<HouseHold> parent = parentRepository.findByUser(camper.getUser());
-            System.out.println(parent);
+            // System.out.println(parent);
 
             // Schedule Info
             List<Weeks> programWeeks = registeredWeeksService.getWeeksAll(currentYear);
@@ -255,19 +255,19 @@ public class RegisteredWeeksController {
     public ResponseEntity<Object> getAllCampers() {
         Calendar cal = Calendar.getInstance();
         Integer currentYear = cal.get(Calendar.YEAR);
-        System.out.println("All campers");
-        System.out.println(currentYear);
+        // System.out.println("All campers");
+        // System.out.println(currentYear);
 
         //registeredWeeksService.getRegisteredWeeksAll();
         List<MangeCamperResponse> enrolled = new ArrayList<MangeCamperResponse>();
         Set<Camper> campers = registeredWeeksService.getCampersInAllPrograms();
         for (Camper camper: campers) {
             // Have Camper Info
-            System.out.println("In weeks");
-            System.out.println(camper.getUser());
-            System.out.println(camper.getUser().getFirstName());
+            // System.out.println("In weeks");
+            // System.out.println(camper.getUser());
+            // System.out.println(camper.getUser().getFirstName());
             Optional<HouseHold> parent = parentRepository.findByUser(camper.getUser());
-            System.out.println(parent);
+            // System.out.println(parent);
             //HouseHold realParent = parent.get(); // HouseHold Info
             // Schedule Info
             List<Weeks> programWeeks = registeredWeeksService.getWeeksAll(currentYear);

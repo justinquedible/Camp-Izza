@@ -652,8 +652,8 @@ public class RosterController {
     public ResponseEntity<Object> emergencyInfo(@Valid @RequestBody EmergencyReleaseRequest request) throws IllegalAccessException {
         List<String> camperAttributeList = request.getAttributes();
         RosterResponse response = new RosterResponse();
-        System.out.println("HUHUHHUH");
-        System.out.println(request.getAttributes());
+        // System.out.println("HUHUHHUH");
+        // System.out.println(request.getAttributes());
 
         response.addCamper(request.getCamperId());
 
@@ -839,13 +839,13 @@ public class RosterController {
                         break;
 
                     case "parentg1FirstName":
-                        System.out.println("hit");
+                        // System.out.println("hit");
                         for (Long id : response.campers.keySet()) {
                             Optional<Camper> c = camperRepository.findById(id);
-                            System.out.println(c.get().getFirstName());
-                            System.out.println(c.get().getParent());
+                            // System.out.println(c.get().getFirstName());
+                            // System.out.println(c.get().getParent());
                             if (c.isPresent() && c.get().getParent() != null) {
-                                System.out.println("double hit");
+                                // System.out.println("double hit");
                                 response.addAttribute(id, attribute, c.get().getParent().getGuardianNameFirst1());
                             }
                         }
@@ -991,11 +991,11 @@ public class RosterController {
             else if(attribute.startsWith("emergency")) {
                 switch (attribute) {
                     case "emergencye1FirstName":
-                        System.out.println("emo hit");
+                        // System.out.println("emo hit");
                         for (Long id : response.campers.keySet()) {
                             Optional<Camper> c = camperRepository.findById(id);
                             if (c.isPresent() && c.get().getParent() != null) {
-                                System.out.println("double emo hit");
+                                // System.out.println("double emo hit");
                                 response.addAttribute(id, attribute, c.get().getParent().getEmergency1first());
                             }
                         }

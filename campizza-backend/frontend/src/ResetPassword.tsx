@@ -8,7 +8,6 @@ import './Login.css';
 import AuthService from './services/auth-service';
 
 import axios from 'axios';
-let URL = 'http://localhost:8080';
 
 interface resetDetailsProp {
     email: string,

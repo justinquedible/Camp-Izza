@@ -6,9 +6,10 @@ import {Card, CardColumns} from "react-bootstrap";
 import AuthService from "./services/auth-service";
 import { Button } from 'react-bootstrap';
 import CamperService from "./services/camper-service";
+import api_url from './API_URL/api_url';
 
-const API_URL = "http://localhost:8080/api/campers/";
-//const API_URL = "https://rugged-sunbeam-229808.uc.r.appspot.com/api/campers/";
+const API_URL = api_url + "api/campers/";
+
 interface ICamper {
     id: string;
     firstName: string,
@@ -35,6 +36,7 @@ const Campers: React.FC = () => {
 
                 }
             });
+        console.log(data);
     }, []);
 
     function shandleCamperClick(name:string, id:string) {

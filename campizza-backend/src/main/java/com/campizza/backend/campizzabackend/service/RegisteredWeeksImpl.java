@@ -191,11 +191,11 @@ public class RegisteredWeeksImpl implements RegisteredWeeksService {
     public void setHolidays(Long id, String holiday) throws ParseException {
         Optional<Weeks> week = weeksRepository.findById(id);
         Weeks realWeek = week.get();
-        System.out.println("In set Holiday");
-        System.out.println(holiday);
+        // System.out.println("In set Holiday");
+        // System.out.println(holiday);
         SimpleDateFormat formatter1=new SimpleDateFormat("yyyy-MM-dd");
         Date holidays = formatter1.parse(holiday);
-        System.out.println(holidays);
+        // System.out.println(holidays);
         Holiday finalHoliday = new Holiday(holidays);
 
         realWeek.addHoliday(finalHoliday);

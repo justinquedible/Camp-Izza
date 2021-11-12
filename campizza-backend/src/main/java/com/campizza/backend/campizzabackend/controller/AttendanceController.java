@@ -59,7 +59,7 @@ public class AttendanceController {
         Optional<Camper> c = camperRepository.findById(camperID);
         Camper camper = c.get();
         attendanceService.addCamper(camper, attendanceRequest.getDate());
-        System.out.println("DATE: " + attendanceRequest.getDate());
+        // System.out.println("DATE: " + attendanceRequest.getDate());
         return new ResponseEntity<>("Attendance has been updated successfully!", HttpStatus.CREATED);
     }
 
@@ -73,7 +73,7 @@ public class AttendanceController {
         AttendanceResponse response = new AttendanceResponse();
         String[] groupNames = {"dates1", "dates2", "coconuts1", "coconuts2", "trees1", "trees2", "leaders1", "leaders2"};
         for (String group : groupNames) {
-            System.out.println(group);
+            // System.out.println(group);
 
             // Build the response Json back for frontend parsing
             response.addExpectedAMCamperRecord(group, attendanceService.getExpectedAMAttendance(d, group)); // get expected am attendance

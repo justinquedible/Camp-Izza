@@ -7,9 +7,6 @@ import {FormControl, Form, Button} from 'react-bootstrap';
 import './Login.css';
 import AuthService from './services/auth-service';
 
-import axios from 'axios';
-let URL = 'http://localhost:8080';
-const FRONTEND_URL = "https://rugged-sunbeam-229808.uc.r.appspot.com/";
 
 interface loginDetailsProp {
     email: string,

@@ -45,7 +45,7 @@ public class MangeCamperResponse {
     }
 
     public MangeCamperResponse(Camper camper, String parent, List<camperWeeks> weeksRegistered) {
-        System.out.println(camper.getId());
+        // System.out.println(camper.getId());
         this.id = camper.getId();
         this.firstName = camper.getFirstName();
         this.lastName = camper.getLastName();

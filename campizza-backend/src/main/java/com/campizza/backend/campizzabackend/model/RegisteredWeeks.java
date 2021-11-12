@@ -183,13 +183,13 @@ public class RegisteredWeeks {
 
     public void addWeek(Weeks week) {
         this.allRegWeeks.add(week);
-        System.out.println(week.getWeekId());
-        System.out.println(this.id);
+        // System.out.println(week.getWeekId());
+        // System.out.println(this.id);
         for (Weeks i:
              this.allRegWeeks) {
-            System.out.println(i.getWeekId());
+            // System.out.println(i.getWeekId());
         }
-        System.out.println(this.allRegWeeks);
+        // System.out.println(this.allRegWeeks);
     }
 
     public int getExtendedCareRate() {

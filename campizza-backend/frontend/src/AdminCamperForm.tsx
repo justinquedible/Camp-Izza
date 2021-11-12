@@ -220,7 +220,7 @@ export const AdminCamperForm: React.FC<Props> = () => {
                     <input type="text" required onChange={handleChange('doctorName')} defaultValue={values.doctorName}/>
                     <p>Primary Physician's Phone Number<b>*</b></p>
                     <input type="text" required onChange={handleChange('doctorPhone')} defaultValue={values.doctorPhone}
-                           placeholder={"949-000-0000"}/>
+                           placeholder={"000-000-0000"}/>
                     <p>Insurance Carrier<b>*</b></p>
                     <input type="text" required onChange={handleChange('insurance')} defaultValue={values.insurance}/>
                     <p>Policy Holder's Name<b>*</b></p>

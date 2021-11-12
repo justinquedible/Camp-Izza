@@ -30,5 +30,7 @@ public class CamperServiceImpl implements CamperService {
         return (List<Camper>) camperRepository.findByGroup(group);
     }
 
-    public void removeCamper(Long id) { camperRepository.deleteCamperById(id);}
+    public void removeCamper(Long id) {
+        camperRepository.deleteCamperById(id);
+    }
 }

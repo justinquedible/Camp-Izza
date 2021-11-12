@@ -1,7 +1,7 @@
 import axios from "axios";
+import api_url from "../API_URL/api_url";
 
-const API_URL = "http://localhost:8080/api/campers/";
-//const API_URL = "https://rugged-sunbeam-229808.uc.r.appspot.com/api/campers/";
+const API_URL = api_url + "api/campers/";
 
 const addCamper = (firstName: string,
                    lastName: string,

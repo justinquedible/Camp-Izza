@@ -184,8 +184,8 @@ public class HouseHold {
         this.guardianNameLast1 = parentRequest.getGuardianNameLast1();
         this.guardianNameFirst2 = parentRequest.getGuardianNameFirst2();
         this.guardianNameLast2 = parentRequest.getGuardianNameLast2();
-        System.out.println("Parent.UpdateInfo()");
-        System.out.println(parentRequest.getEmergency1Phone());
+        // System.out.println("Parent.UpdateInfo()");
+        // System.out.println(parentRequest.getEmergency1Phone());
         this.guardianEmail1 = parentRequest.getGuardianEmail1();
         this.guardianEmail2 = parentRequest.getGuardianEmail2();
         this.guardian1Phone1 = parentRequest.getGuardian1Phone1();

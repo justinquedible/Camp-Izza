@@ -1,8 +1,8 @@
 import axios from "axios";
 import {stringify} from "querystring";
+import api_url from "../API_URL/api_url";
 
-const API_URL = "http://localhost:8080/auth/";
-//const API_URL = "https://rugged-sunbeam-229808.uc.r.appspot.com/auth/";
+const API_URL = api_url + "auth/";
 
 const register = (firstName: string, lastName: string, email: string,  password: string) => {
     let roles = ["parentRole"]

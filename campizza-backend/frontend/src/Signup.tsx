@@ -8,7 +8,6 @@ import './Login.css';
 
 import axios from 'axios';
 import AuthService from "./services/auth-service";
-let URL = 'http://localhost:8080';
 
 interface loginDetailsProp {
     email: string,

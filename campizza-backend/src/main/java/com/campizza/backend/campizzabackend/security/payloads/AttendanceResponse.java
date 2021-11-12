@@ -88,8 +88,8 @@ public class AttendanceResponse {
 
         for (Camper camper : camperList) {
             Map<String, String> camperStatus = new HashMap<>();
-            System.out.println("PM");
-            System.out.println(camper.getFirstName());
+            // System.out.println("PM");
+            // System.out.println(camper.getFirstName());
             if (!this.camperRecords.get(group).containsKey(String.valueOf(camper.getId()))) {
                 camperStatus.put("firstName", camper.getFirstName());
                 camperStatus.put("lastName", camper.getLastName());

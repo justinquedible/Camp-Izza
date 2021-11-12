@@ -62,7 +62,7 @@ public class AttendanceServiceImpl implements AttendanceService {
     }
 
     public List<Camper> getExpectedAMAttendance(Date date, String group) {
-        System.out.println(date);
+        // System.out.println(date);
         try {
             return camperRepository.findAllAMCampersRegByGroup(group, date);
         } catch (Exception e) {
@@ -125,7 +125,7 @@ public class AttendanceServiceImpl implements AttendanceService {
     public void addCamper(Camper camper, Date date) {
         Optional<Attendance> a = attendanceRepository.findByCurrDate(date);
         if (a.isPresent()) {
-            System.out.println("IS PRESENT");
+            // System.out.println("IS PRESENT");
             Attendance attendance = a.get();
             attendance.addCamper(camper);
             attendanceRepository.saveAndFlush(attendance);
@@ -169,7 +169,7 @@ public class AttendanceServiceImpl implements AttendanceService {
         // Delete old attendance
         if (a.isPresent()) {
             Attendance originalAttendance = a.get();
-            System.out.println("Attendance ID " + originalAttendance.getId());
+            // System.out.println("Attendance ID " + originalAttendance.getId());
             if (originalAttendance.containsCamper(c.get())) {
                 originalAttendance.removeCamper(c.get());
                 attendanceRepository.saveAndFlush(originalAttendance);
@@ -179,8 +179,8 @@ public class AttendanceServiceImpl implements AttendanceService {
         if (!time.equals("absent")) {
             Attendance attendance = initializeAttendanceRecords(date, time, a);
             Camper camper = c.get();
-            System.out.println("New Attendance " + attendance.getId());
-            System.out.println("Camper " + camper.getFirstName());
+            // System.out.println("New Attendance " + attendance.getId());
+            // System.out.println("Camper " + camper.getFirstName());
             attendance.addCamper(camper);
             attendanceRepository.saveAndFlush(attendance);
         }
@@ -193,7 +193,7 @@ public class AttendanceServiceImpl implements AttendanceService {
         // Delete old attendance for bonus camper
         if (a.isPresent()) {
             Attendance originalAttendance = a.get();
-            System.out.println("Attendance ID " + originalAttendance.getId());
+            // System.out.println("Attendance ID " + originalAttendance.getId());
             if (originalAttendance.containsBonusCamper(bonusCamperGroup + "," + bonusCamperName)) {
                 originalAttendance.removeBonusCamper(bonusCamperGroup + "," + bonusCamperName);
                 attendanceRepository.saveAndFlush(originalAttendance);
@@ -222,10 +222,10 @@ public class AttendanceServiceImpl implements AttendanceService {
             response.addWeek(week.getWeekId(), week.getStartDate().toString(), week.getEndDate().toString());
         }
 
-        System.out.println(a);
+        // System.out.println(a);
         assert a != null;
         for(Object[] object: a){
-            System.out.println(Arrays.toString(object));
+            // System.out.println(Arrays.toString(object));
             response.addAttribute(((BigInteger) object[3]).longValue(), (Boolean) object[0], (Boolean) object[1], ((Date) object[2]).toString());
         }
         // [am, pm, date, weekID]

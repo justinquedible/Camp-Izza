@@ -12,7 +12,7 @@ const FooterInstance =(
                                 registered in the state of California with federal tax ID #26-2174441.
                         </Container>
                         <Container fluid>
-                                1 Truman, Irvine CA, 92690 • (949) 422-8123
+                                PO Box 50326, Irvine CA, 92690 • (949) 422-8123
                                 <br /> © 2020 Camp Izza
                         </Container>
                     </div>

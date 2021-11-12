@@ -1,8 +1,8 @@
 import axios from "axios";
 import {stringify} from "querystring";
+import api_url from "../API_URL/api_url";
 
-const API_URL = "http://localhost:8080/api/parents/";
-//const API_URL = "https://rugged-sunbeam-229808.uc.r.appspot.com/api/parents/";
+const API_URL = api_url + "/api/parents/";
 
 const addHouseHold = (parentEmail: string,
     guardianNameFirst1: string, guardianNameLast1: string, guardianNameFirst2: string, guardianNameLast2: string,

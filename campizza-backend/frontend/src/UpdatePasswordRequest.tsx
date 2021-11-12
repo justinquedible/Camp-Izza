@@ -8,9 +8,6 @@ import './Login.css';
 import AuthService from './services/auth-service';
 
 import axios from 'axios';
-let URL = 'http://localhost:8080';
-let localURL =  'http://localhost:3000';
-const FRONTEND_URL = "https://rugged-sunbeam-229808.uc.r.appspot.com/";
 
 interface resetDetailsProp {
     password: string,

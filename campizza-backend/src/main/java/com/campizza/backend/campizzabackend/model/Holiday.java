@@ -21,10 +21,10 @@ public class Holiday {
     }
 
     public Holiday(Date holidayDate ){
-        System.out.println("In constructor");
-        System.out.println(holidayDate);
+        // System.out.println("In constructor");
+        // System.out.println(holidayDate);
         this.holiday_date = holidayDate;
-        System.out.println(this.holiday_date);
+        // System.out.println(this.holiday_date);
     }
 
     public Date getHoliday() {

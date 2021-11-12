@@ -251,8 +251,8 @@ public class CamperController {
     @PostMapping("/getCamperScheduleInfo")
     public ResponseEntity<Object> getScheduleInfo(@Valid @RequestBody CamperScheduleInfoRequest camperScheduleInfoRequest) {
 
-        System.out.println(camperScheduleInfoRequest.getCamperID());
-        System.out.println(camperScheduleInfoRequest.getYear());
+        // System.out.println(camperScheduleInfoRequest.getCamperID());
+        // System.out.println(camperScheduleInfoRequest.getYear());
 
         Optional<RegisteredWeeks> registeredWeeks = registeredWeeksRepository.findByCurrentYear(camperScheduleInfoRequest.getYear());
         RegisteredWeeks realWeeks = registeredWeeks.get();
@@ -297,9 +297,9 @@ public class CamperController {
     @CrossOrigin
     @GetMapping("/{id}")
     public ResponseEntity<Object> getParentCampers(@PathVariable("id") Long id) {
-        System.out.println(id);
-        System.out.println(camperService.getParentCampers(id));
-        System.out.println("accessed id");
+        // System.out.println(id);
+        // System.out.println(camperService.getParentCampers(id));
+        // System.out.println("accessed id");
 
         return new ResponseEntity<>(camperService.getParentCampers(id), HttpStatus.OK);
     }
@@ -327,7 +327,7 @@ public class CamperController {
     @CrossOrigin
     @PostMapping("/setPaid/{id}")
     public ResponseEntity<Object> setCamperPaid(@PathVariable("id") Long id, @Valid @RequestBody CamperInfoRequest camperInfoRequest) {
-        System.out.println(camperInfoRequest.getAmount());
+        // System.out.println(camperInfoRequest.getAmount());
         Optional<Camper> camper = camperRepository.findCamperById(id);
         Camper realCamper = camper.get();
         realCamper.setPaid(camperInfoRequest.getAmount());
@@ -392,7 +392,7 @@ public class CamperController {
     @PostMapping("/del/{id}")
     public ResponseEntity<Object> deleteCamper(@PathVariable("id") Long id) {
         //Long i = new Long(id);
-        System.out.println("is deleting?");
+        System.out.println("deleting camper");
         System.out.println(id);
         camperService.removeCamper(id);
 
@@ -409,12 +409,12 @@ public class CamperController {
     @CrossOrigin
     @PostMapping("/assignGroup")
     public ResponseEntity<Object> assignManualCamper(@Valid @RequestBody GroupAssignRequest groupAssignRequest) {
-        System.out.println(groupAssignRequest.getId());
-        System.out.println(groupAssignRequest.getGroup());
+        // System.out.println(groupAssignRequest.getId());
+        // System.out.println(groupAssignRequest.getGroup());
         Optional<Camper> camper = camperRepository.findById( groupAssignRequest.getId()) ;
         Camper realCamper = camper.get();
         realCamper.setGroup(groupAssignRequest.getGroup());
-        System.out.println(realCamper.getGroup());
+        // System.out.println(realCamper.getGroup());
         camperService.createCamper(realCamper);
         return new ResponseEntity<>("Camper group has been assigned successfully", HttpStatus.OK);
     }
