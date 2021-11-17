@@ -98,12 +98,12 @@ export const Sessions: React.FC<Props> = () => {
         week8start: "",
         week8end: "",
         week8id: 0,
-        week9start: "",
-        week9end: "",
-        week9id: 0,
-        week10start: "",
-        week10end: "",
-        week10id: 0,
+        // week9start: "",
+        // week9end: "",
+        // week9id: 0,
+        // week10start: "",
+        // week10end: "",
+        // week10id: 0,
         weekHoliday: "",
         currentWeekID: 0,
         cutoff: "",
@@ -260,13 +260,11 @@ export const Sessions: React.FC<Props> = () => {
     const handleWeeksSubmit = async (e: {preventDefault: () => void; }) => {
         const {week1start, week1end, week1id, week1holidays, week2start, week2end, week2id, week3start, week3end, week3id, week4start,
             week4end, week4id, week5start, week5end, week5id, week6start, week6end, week6id, week7start, week7end,
-            week7id, week8start, week8end, week8id, week9start, week9end, week9id, week10start, week10end,
-            week10id, cutoff, amTimeStart, amTimeEnd, amECTimeStart, amECTimeEnd, pmTimeStart, pmTimeEnd, pmECTimeStart, pmECTimeEnd,
+            week7id, week8start, week8end, week8id, cutoff, amTimeStart, amTimeEnd, amECTimeStart, amECTimeEnd, pmTimeStart, pmTimeEnd, pmECTimeStart, pmECTimeEnd,
             fullTimeStart, fullTimeEnd, fullECTimeStart, fullECTimeEnd, amSelected, amECSelected, pmSelected, pmECSelected, fullSelected, fullECSelected} = weeks;
         const allWeeks = [[week1start, week1end, week1id, week1holidays],[week2start, week2end, week2id],[week3start, week3end, week3id],
             [week4start, week4end, week4id],[week5start, week5end, week5id],[week6start, week6end, week6id],[week7start,
-                week7end, week7id],[week8start, week8end, week8id],[week9start, week9end, week9id],[ week10start, week10end,
-                week10id]];
+                week7end, week7id],[week8start, week8end, week8id]];
         await AdminService.setProgramWeeks(allWeeks, cutoff, amTimeStart, amTimeEnd, amECTimeStart, amECTimeEnd, pmTimeStart, pmTimeEnd, pmECTimeStart, pmECTimeEnd,
             fullTimeStart, fullTimeEnd, fullECTimeStart, fullECTimeEnd, amSelected, amECSelected, pmSelected, pmECSelected, fullSelected, fullECSelected);    };
 
@@ -340,11 +338,12 @@ export const Sessions: React.FC<Props> = () => {
             <h4>Camp Dates</h4><br />
             <div className={"sessionsForms"}>
                 <form>
+                    <b>***To set dates use the calendar icon***</b>
                     <h5>Weeks</h5>
                     <div className={"row"}>
 
                         <div className={"column"}> Week 1 Start <input type={"Date"} onChange={handleWeekChange('week1start')} value={weeks.week1start}/>
-                            {weeks.week1id != 0 && <Button variant="success" className="holidayBtn" type="submit" onClick={()=>handlePopup(weeks.week1id)}> Add Holiday </Button>}
+                            {weeks.week1id !== 0 && <Button variant="success" className="holidayBtn" type="submit" onClick={()=>handlePopup(weeks.week1id)}> Add Holiday </Button>}
                         </div>
                         <div className={"column"}> Week 1 End <input type={"Date"} onChange={handleWeekChange('week1end')} value={weeks.week1end}/>
                         </div>
@@ -354,7 +353,7 @@ export const Sessions: React.FC<Props> = () => {
 
                     <div className={"row shadeGray"}>
                         <div className={"column"}> Week 2 Start <input type={"Date"} onChange={handleWeekChange('week2start')} value={weeks.week2start}/>
-                            {weeks.week2id != 0 && <Button variant="success" className="holidayBtn" type="submit" onClick={()=>handlePopup(weeks.week2id)}> Add Holiday </Button>}
+                            {weeks.week2id !== 0 && <Button variant="success" className="holidayBtn" type="submit" onClick={()=>handlePopup(weeks.week2id)}> Add Holiday </Button>}
                         </div>
                         <div className={"column"}> Week 2 End <input type={"Date"} onChange={handleWeekChange('week2end')} value={weeks.week2end}/>
                         </div>
@@ -405,7 +404,7 @@ export const Sessions: React.FC<Props> = () => {
                         <div className={"column"}> Week 8 End <input type={"Date"} onChange={handleWeekChange('week8end')} value={weeks.week8end}/>
                         </div>
                     </div>
-                    <div className={"row"}>
+                    {/* <div className={"row"}>
                         <div className={"column"}> Week 9 Start <input type={"Date"} onChange={handleWeekChange('week9start')} value={weeks.week9start}/>
                             {weeks.week9id != 0 && <Button variant="success" className="holidayBtn" type="submit" onClick={()=>handlePopup(weeks.week9id)}> Add Holiday </Button>}
                         </div>
@@ -418,7 +417,10 @@ export const Sessions: React.FC<Props> = () => {
                         </div>
                         <div className={"column"}> Week 10 End <input type={"Date"} onChange={handleWeekChange('week10end')} value={weeks.week10end}/>
                         </div>
-                    </div><br />
+                    </div><br /> */}
+
+                    <br/>
+
                     <h5>Additional Settings</h5>
 
                     <div className={"row"}><div className={"column"}>Current Year <input type={"Number"} value={year}/></div>

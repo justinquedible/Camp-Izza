@@ -41,6 +41,7 @@ interface Props {
 
 export const AdminCamperForm: React.FC<Props> = () => {
     const [showDelForm, setDelForm] = React.useState(false);
+    const [user_id, setUser_id] = React.useState(0);
 
     const DelForm = () => <div className="form-popup" id="myForm">
         <form className="form-container center" >
@@ -95,10 +96,12 @@ export const AdminCamperForm: React.FC<Props> = () => {
         let camper = localStorage.getItem("currentChildID")
         if (typeof name =="string" && name !==""){
             named = name;
-            console.log("hello");
+            // console.log("hello");
             CamperService.getCamperInfo(camper).then(response => {
                 if (response.status===200){
                     setValues(response.data);
+                    setUser_id(response.data.userID);
+                    console.log(response.data.userID);
                 }
                 else if (response.status===400){
                     return false;
@@ -113,14 +116,14 @@ export const AdminCamperForm: React.FC<Props> = () => {
 
 
     const handleSubmit = async (e: { preventDefault: () => void; }) => {
-        const currentUser = AuthService.currentUser();
-        let user_id = currentUser.id;
+        // const currentUser = AuthService.currentUser();
+        // let user_id = currentUser.id;
         e.preventDefault();
         const {firstName, lastName, genderEnum, dobDate, schoolName, gradeNum, shirtEnum, doctorName, doctorPhone, insurance, policy_holder, illnesses, illnesses_names, allergy_names,
             allergies, medication, medication_names, activities, activity_names, medical_treatments, medical_treatment_names,
             immunizations, tetanus_date, comment} = values;
         await CamperService.addCamper(firstName, lastName, genderEnum, dobDate, schoolName, gradeNum, shirtEnum, doctorName, doctorPhone, insurance,
-            policy_holder, illnesses,illnesses_names, allergies, allergy_names, medication, medication_names, activities, activity_names, medical_treatments,
+            policy_holder, illnesses, illnesses_names, allergies, allergy_names, medication, medication_names, activities, activity_names, medical_treatments,
             medical_treatment_names, immunizations, tetanus_date, comment, user_id);
         window.location.href = "#/admin/managecampers"
         window.location.reload();
@@ -159,22 +162,22 @@ export const AdminCamperForm: React.FC<Props> = () => {
                     <br/><br/>
                     <h3> Camper Form </h3>
                     <br/>
-                    <p><b>*</b> indicates a mandatory field.</p>
+                    <p><b>*</b> Indicates a mandatory field.</p>
                     <h5> Camper Info </h5>
-                    <p>First Name<b>*</b></p>
+                    <p><b>* </b>First Name</p>
                     <input type="text" required
                            onChange={handleChange('firstName')} defaultValue={values.firstName}/>
 
-                    <p>Last Name<b>*</b></p>
+                    <p><b>* </b>Last Name</p>
                     <input type="text" required
                            onChange={handleChange('lastName')} defaultValue={values.lastName}/>
-                    <p>School Name<b>*</b></p>
-                    <input type="text"
+                    <p><b>* </b>School Name</p>
+                    <input type="text" required
                            onChange={handleChange('schoolName')} defaultValue={values.schoolName}/>
 
-                    <p>Grade Level<b>*</b></p>
+                    <p><b>* </b>Grade Level</p>
                     <select onChange={handleChange('gradeNum')} required value={values.gradeNum} >
-                        <option disabled selected value="-2"> -- Select --</option>
+                        <option value=""> -- Select --</option>
                         <option value="-1">Pre-Kindergarten</option>
                         <option value="0">Kindergarten</option>
                         <option value="1">1st Grade</option>
@@ -192,17 +195,17 @@ export const AdminCamperForm: React.FC<Props> = () => {
                     </select>
 
 
-                    <p>Gender<b>*</b></p>
+                    <p><b>* </b>Gender</p>
                     <select onChange={handleChange('genderEnum')} required value={values.genderEnum}>
-                        <option disabled selected> -- Select --</option>
+                        <option value=""> -- Select --</option>
                         <option value="MALE">Male</option>
                         <option value="FEMALE">Female</option>
                         <option value="OTHER">Other</option>
                     </select>
 
-                    <p>Shirt Size<b>*</b></p>
+                    <p><b>* </b>Shirt Size</p>
                     <select onChange={handleChange('shirtEnum')} required value={values.shirtEnum}>
-                        <option disabled selected> -- Select --</option>
+                        <option value=""> -- Select --</option>
                         <option value="XSMALL">Extra Small</option>
                         <option value="SMALL">Small</option>
                         <option value="MEDIUM">Medium</option>
@@ -210,21 +213,21 @@ export const AdminCamperForm: React.FC<Props> = () => {
                         <option value="XLARGE">Extra Large</option>
                     </select>
 
-                    <p>Date of Birth<b>*</b></p>
+                    <p><b>* </b>Date of Birth</p>
                     <input type="date" required onChange={handleChange('dobDate')} defaultValue={values.dobDate}/>
 
 
                     <h5> Health Info </h5>
 
 
-                    <p>Primary Physician's Name<b>*</b></p>
+                    <p><b>* </b>Primary Physician's Name</p>
                     <input type="text" required onChange={handleChange('doctorName')} defaultValue={values.doctorName}/>
-                    <p>Primary Physician's Phone Number<b>*</b></p>
+                    <p><b>* </b>Primary Physician's Phone Number</p>
                     <input type="text" required onChange={handleChange('doctorPhone')} defaultValue={values.doctorPhone}
                            placeholder={"000-000-0000"}/>
-                    <p>Insurance Carrier<b>*</b></p>
+                    <p><b>* </b>Insurance Carrier</p>
                     <input type="text" required onChange={handleChange('insurance')} defaultValue={values.insurance}/>
-                    <p>Policy Holder's Name<b>*</b></p>
+                    <p><b>* </b>Policy Holder's Name</p>
                     <input type="text" required onChange={handleChange('policy_holder')} defaultValue={values.policy_holder}/>
                     <br/>
 
@@ -232,50 +235,56 @@ export const AdminCamperForm: React.FC<Props> = () => {
                     <h5> Health Questionnaire </h5>
 
 
-                    <p>Does your child have any chronic conditions or illnesses? If <u>yes</u>, please list conditions.<b>*</b></p>
+                    <p><b>* </b>Does your child have any chronic conditions or illnesses? If <u>yes</u>, please list conditions.</p>
                     <select className="sameRow" required onChange={handleChange('illnesses')} value={values.illnesses}>
-                        <option disabled selected> -- Select --</option>
+                        <option value=""> -- Select --</option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                     </select>
                     <input className="sameRow" type="text"  onChange={handleChange('illnesses_names')} defaultValue={values.illnesses_names}/>
-                    <p>Does your child have any allergies and/or dietary restrictions? If <u>yes</u>, please list restrictions.<b>*</b></p>
+                    
+                    <p><b>* </b>Does your child have any allergies and/or dietary restrictions? If <u>yes</u>, please list restrictions.</p>
                     <select className="sameRow" required onChange={handleChange('allergies')} value={values.allergies}>
-                        <option disabled selected> -- Select --</option>
+                        <option value=""> -- Select --</option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                     </select>
                     <input className="sameRow" type="text" onChange={handleChange('allergy_names')} defaultValue={values.allergy_names}/>
-                    <p>Will your child be taking any medication at camp? If <u>yes</u>, please list medications.<b>*</b>
+
+                    <p><b>* </b>Will your child be taking any medication at camp? If <u>yes</u>, please list medications.
                     </p>
                     <select className="sameRow" required onChange={handleChange('medication')} value={values.medication}>
-                        <option disabled selected> -- Select --</option>
+                        <option value=""> -- Select --</option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                     </select>
                     <input className="sameRow" type="text" onChange={handleChange('medication_names')} defaultValue={values.medication_names}/>
-                    <p>Are there any camp activities that your child cannot participate in? If  <u>yes</u>, please list
-                        activities.<b>*</b></p>
+
+                    <p><b>* </b>Are there any camp activities that your child cannot participate in? If  <u>yes</u>, please list
+                        activities.</p>
                     <select className="sameRow" required onChange={handleChange('activities')} value={values.activities}>
-                        <option disabled selected> -- Select --</option>
+                        <option value=""> -- Select --</option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                     </select>
                     <input className="sameRow" type="text" onChange={handleChange('activity_names')} defaultValue={values.activity_names}/>
-                    <p>Has your child undergone any medical treatments? If <u>yes</u>, please list treatments.<b>*</b></p>
+
+                    <p><b>* </b>Has your child undergone any medical treatments? If <u>yes</u>, please list treatments.</p>
                     <select className="sameRow" required onChange={handleChange('medical_treatments')} value={values.medical_treatments}>
-                        <option disabled selected> -- Select --</option>
+                        <option value=""> -- Select --</option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                     </select>
                     <input className="sameRow" type="text" onChange={handleChange('medical_treatment_names')} defaultValue={values.medical_treatment_names}/>
-                    <p>Has your child received all current immunizations?<b>*</b></p>
+
+                    <p><b>* </b>Has your child received all current immunizations?</p>
                     <select required onChange={handleChange('immunizations')} value={values.immunizations}>
-                        <option disabled selected> -- Select --</option>
+                        <option value=""> -- Select --</option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                     </select>
-                    <p>What is the date (approximate if necessary) of your child's last tetanus shot?<b>*</b></p>
+                    
+                    <p><b>* </b>What is the date (approximate if necessary) of your child's last tetanus shot?</p>
                     <input type="date" required onChange={handleChange('tetanus_date')} defaultValue={values.tetanus_date}/>
 
                     <h5> Extra Comments </h5>

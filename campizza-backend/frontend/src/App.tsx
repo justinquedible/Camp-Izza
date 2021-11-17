@@ -35,6 +35,7 @@ import NavBarInstance from "./NavBar";
 import FooterInstance from "./Footer";
 import AdminProtected from "./AdminProtected";
 import AdminCamperForm from "./AdminCamperForm";
+import CompletedTransaction from "./CompletedTransaction";
 
 
 function App() {
@@ -74,6 +75,7 @@ function App() {
                             <Route exact path={"/Profile"} component={Profile}/>
                             <Route exact path={"/NewScheduling"} component={NewScheduling}/>
                             <Route exact path={"/Checkout"} component={Checkout}/>
+                            <Route exact path={"/CompletedTransaction"} component={CompletedTransaction}/>
                             <Route exact path={"/counselor"} component={Counselor}/>
                             <Route exact path={"/counselor/attendance"} component={CounselorAttendance}/>
                         </Switch>

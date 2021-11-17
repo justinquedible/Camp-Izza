@@ -149,7 +149,7 @@ const Checkout = () => {
     function CountWeeksReg(dataList:any){
         var count = 0;
         for (var i=0; i < dataList.length; i++) {
-            if (dataList[i].status == "full") {
+            if (dataList[i].status === "full") {
                 count++
             }
         }
@@ -162,7 +162,7 @@ const Checkout = () => {
     // }
     let orderdue = subtotal-credit.credit;
     function checkRegistered(item:any){
-        return item.status == "full";
+        return item.status === "full";
     }
     let newpaid = orderdue+paid.amountPaid;
     async function UpdatePaid() {
@@ -171,7 +171,7 @@ const Checkout = () => {
         let name = localStorage.getItem("currentChild") as string
         await CamperService.assignPaid(userID, newpaid);
         await CamperService.addCamperSchedule(name, userID, shirts.numShirts, data);
-
+        window.location.href="/#/CompletedTransaction";
     }
     let currentWeeks = data.filter(checkRegistered)
     function createOrder(data:any, actions:any) {

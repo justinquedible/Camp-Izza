@@ -184,8 +184,7 @@ export const FinalCamperForm: React.FC<Props> = () => {
 
                     {initLastName === "" ? 
                         <input type="text2" required readOnly={initLastName !== ""} 
-                            onChange={handleChange('lastName')} defaultValue={values.lastName}
-                            />
+                            onChange={handleChange('lastName')} defaultValue={values.lastName}/>
                     :
                         <p style={{marginBottom: 15, color:"#949494"}}>{values.lastName}</p>
                     }

@@ -199,6 +199,7 @@ export const NewScheduling: React.FC= () => {
         //await CamperService.addCamperSchedule(name, userID, num.numShirts, data);
 
         window.location.href="/#/checkout"
+        window.location.reload();
     }
 
 

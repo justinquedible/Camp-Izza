@@ -14,6 +14,7 @@ import AuthService from "./services/auth-service";
 
 const ParentDashboard = () => {
     const currentUser = AuthService.currentUser();
+    console.log(currentUser);
 
     const handleCamperForm = async (e: {preventDefault: () => void; }) => {
         const currentUser = AuthService.currentUser();
