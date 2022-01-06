@@ -41,11 +41,18 @@ public interface CamperRepository extends JpaRepository<Camper, Long> {
 
     @Modifying
     @Query(value =
-        "delete from campers where " +
-        "id = :id",
+        "delete from campers where id = :id",
         nativeQuery = true
     )
     void deleteCamperById(Long id);
+
+
+    @Modifying
+    @Query(value =
+        "delete from medical_records where camper_id = :id",
+        nativeQuery = true
+    )
+    void deleteCamperMedicalRecordById(Long id);
 
 
     @Query(value =

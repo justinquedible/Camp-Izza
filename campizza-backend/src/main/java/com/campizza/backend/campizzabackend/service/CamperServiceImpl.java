@@ -31,6 +31,7 @@ public class CamperServiceImpl implements CamperService {
     }
 
     public void removeCamper(Long id) {
+        camperRepository.deleteCamperMedicalRecordById(id);
         camperRepository.deleteCamperById(id);
     }
 }
