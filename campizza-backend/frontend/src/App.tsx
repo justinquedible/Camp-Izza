@@ -36,6 +36,7 @@ import FooterInstance from "./Footer";
 import AdminProtected from "./AdminProtected";
 import AdminCamperForm from "./AdminCamperForm";
 import CompletedTransaction from "./CompletedTransaction";
+import CamperInfo from "./CamperInfo";
 
 
 function App() {
@@ -71,6 +72,7 @@ function App() {
                             <Route exact path={"/updateSuccess"} component={UpdateSuccess}/>
                             <Route exact path={"/resetConfirmed"} component={ResetConfirmation}/>
                             <Route exact path={"/HouseholdForm"} component={Household}/>
+                            <Route exact path={"/CamperInfo"} component={CamperInfo}/>
                             <Route exact path={"/CamperForm"} component={FinalCamperForm}/>
                             <Route exact path={"/Profile"} component={Profile}/>
                             <Route exact path={"/NewScheduling"} component={NewScheduling}/>

@@ -94,8 +94,8 @@ export const FinalCamperForm: React.FC<Props> = () => {
     React.useEffect(() => {
         const currentUser = AuthService.currentUser();
         let user_id = currentUser.id;
-        let name:string | null;
-        let named:string | null;
+        let name: string | null;
+        let named: string | null;
         name = localStorage.getItem("currentChild");
         if (typeof name =="string" && name !==""){
             named = name;
@@ -108,13 +108,9 @@ export const FinalCamperForm: React.FC<Props> = () => {
                 else if (response.status===400){
                     return false;
                 }
-
             })
         }
-        
-
     }, [])
-
 
 
     const handleSubmit = async (e: { preventDefault: () => void; }) => {
@@ -163,9 +159,9 @@ export const FinalCamperForm: React.FC<Props> = () => {
 
 
                 <form onSubmit={handleSubmit}>
-                    <Button variant="primary" className="backButton" href="/#/parent"> Back </Button>
+                    <Button variant="primary" className="backButton" href="/#/CamperInfo"> Back </Button>
                     <br/><br/>
-                    <h3> Camper Form </h3>
+                    <h3> Edit Camper </h3>
                     <br/>
                     <p><b>* </b>Indicates a mandatory field.</p>
                     <p>Note: Please email omarezz@gmail.com to change camper's name</p>

@@ -58,7 +58,7 @@ const Campers: React.FC = () => {
                 <Card border="success" style={{width: '80%'}}>
                     <Card.Body>
                         <Card.Title>{item.firstName}</Card.Title>
-                        <Card.Link  onClick={() => shandleCamperClick(item.firstName, item.id)} href= "#/CamperForm">
+                        <Card.Link  onClick={() => shandleCamperClick(item.firstName, item.id)} href= "#/CamperInfo">
                             📝 Info
                         </Card.Link >
                         <br />
