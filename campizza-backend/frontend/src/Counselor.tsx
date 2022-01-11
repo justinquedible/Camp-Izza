@@ -48,6 +48,7 @@ export const Counselor: React.FC<Props> = () => {
             <br /><br />
             <h3> Counselor Dashboard </h3>
 
+            <div className="center"><Button variant="primary" href="/#/counselorInfo"> Profile </Button></div>
             <div className="center"><Button variant="primary" href="/#/counselor/attendance"> Take Attendance </Button></div><br /><br />
 
 

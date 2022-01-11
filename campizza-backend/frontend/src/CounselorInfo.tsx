@@ -1,6 +1,7 @@
 import React from 'react';
 import AuthService from './services/auth-service';
 import CamperService from './services/camper-service';
+import AdminService from './services/admin-service';
 import {Button} from "react-bootstrap";
 
 interface Props {
@@ -30,16 +31,16 @@ interface Props {
     camperName: string
 }
 
-export const CamperInfo: React.FC<Props> = (props: Props) => {
+export const CounselorInfo: React.FC<Props> = (props: Props) => {
 
     const [values, setValues] = React.useState({
         firstName: '',
         lastName: '',
         genderEnum: '',
+        phone: '',
+        altPhone: '',
+        email: '',
         dobDate: '',
-        schoolName: '',
-        gradeNum: 0,
-        shirtEnum: '',
         doctorName: '',
         doctorPhone: '',
         insurance: '',
@@ -56,7 +57,6 @@ export const CamperInfo: React.FC<Props> = (props: Props) => {
         medical_treatment_names: '',
         immunizations: '-- Select --',
         tetanus_date: '',
-        comment: '',
 
         userID: null,
     });
@@ -64,37 +64,34 @@ export const CamperInfo: React.FC<Props> = (props: Props) => {
 
     React.useEffect(() => {
         const currentUser = AuthService.currentUser();
-        let user_id = currentUser.id;
-        let name: string | null;
-        let named: string | null;
-        name = localStorage.getItem("currentChild");
-        if (typeof name =="string" && name !==""){
-            named = name;
-            CamperService.getInfo(named, user_id).then(response => {
-                if (response.status===200){
-                    setValues(response.data);
-                }
-                else if (response.status===400){
-                    return false;
-                }
-            })
-        }
+        let id = currentUser.id.toString();
+        AdminService.getAllCounselors().then(response => {
+            if (response.status===200){
+                // console.log(response);
+                let counselor = response.data.find((counselor: any) => counselor.id === id);
+                console.log(counselor);
+                setValues(counselor);
+            }
+            else if (response.status===400){
+                return false;
+            }
+        });
     }, [])
 
     return (
         <div>
             <br/><br/><br/><br/><br/><br/>
             <div style={{marginLeft: "2.5%"}}>
-                <Button variant="primary" className="backButton" href="/#/parent"> Back to Dashboard </Button>
+                <Button variant="primary" className="backButton" href="/#/counselor"> Back to Dashboard </Button>
             </div>
             <body style={{textAlign: "center"}}>
                 <h1>{values.firstName} {values.lastName}</h1>
                 <br/>
-                <Button style={{backgroundColor: "#3E9724"}} variant="primary" href="/#/CamperForm"> Edit Camper </Button>
+                <Button style={{backgroundColor: "#3E9724"}} variant="primary" href="/#/CounselorForm"> Edit Profile </Button>
             </body>
 
             <div style={{marginLeft: "20%", marginRight: "20%"}}>
-                <table>  <h4>Camper Info</h4>
+                <table>  <h4>Counselor Info</h4>
                     <tr>
                         <td>Gender</td>
                         <td>{values.genderEnum}</td>
@@ -104,16 +101,16 @@ export const CamperInfo: React.FC<Props> = (props: Props) => {
                         <td>{values.dobDate}</td>
                     </tr>
                     <tr>
-                        <td>Shirt Size</td>
-                        <td>{values.shirtEnum}</td>
+                        <td>Phone Number</td>
+                        <td>{values.phone}</td>
                     </tr>
                     <tr style={{backgroundColor: "#F2F2F2"}}>
-                        <td>Grade</td>
-                        <td>{values.gradeNum}</td>
+                        <td>Alternate Phone Number</td>
+                        <td>{values.altPhone}</td>
                     </tr>
                     <tr>
-                        <td>Elementary School</td>
-                        <td>{values.schoolName}</td>
+                        <td>Email</td>
+                        <td>{values.email}</td>
                     </tr>
                 </table>
                 <br/>
@@ -167,15 +164,10 @@ export const CamperInfo: React.FC<Props> = (props: Props) => {
                     </tr>
                 </table>
                 <br/>
-                <table> <h4>Additional Notes</h4>
-                    <tr>
-                        <td>{values.comment}</td>
-                    </tr>
-                </table>
             </div>
             
         </div>
     )
 }
 
-export default CamperInfo;
+export default CounselorInfo;

@@ -37,6 +37,8 @@ import AdminProtected from "./AdminProtected";
 import AdminCamperForm from "./AdminCamperForm";
 import CompletedTransaction from "./CompletedTransaction";
 import CamperInfo from "./CamperInfo";
+import CounselorInfo from "./CounselorInfo";
+import CounselorForm from "./CounselorForm";
 
 
 function App() {
@@ -79,6 +81,8 @@ function App() {
                             <Route exact path={"/Checkout"} component={Checkout}/>
                             <Route exact path={"/CompletedTransaction"} component={CompletedTransaction}/>
                             <Route exact path={"/counselor"} component={Counselor}/>
+                            <Route exact path={"/counselorInfo"} component={CounselorInfo}/>
+                            <Route exact path={"/counselorForm"} component={CounselorForm}/>
                             <Route exact path={"/counselor/attendance"} component={CounselorAttendance}/>
                         </Switch>
                     </div>
