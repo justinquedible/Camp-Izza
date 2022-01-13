@@ -54,6 +54,14 @@ Open http://localhost:8080 to send your GET and POST requests
 ## Troubleshooting
 - Error when running springboot: https://cloud.google.com/docs/authentication/getting-started#cloud-console
 
+## Connecting to Google Cloud SQL to MySQL Workbench
+- On Google Cloud Platform, open Camp Izza project
+- Go to SQL dashboard
+- Click "campizzatest"
+- Click "Connections" on the left
+- Add your IP address under "Authorized networks"
+- Username and password can be found in documentation
+
 ## Tips for Sending Requests Between Cloud SQL and local spring-boot
 - There are many connectivity options to choose from:\
 https://cloud.google.com/sql/docs/mysql/connect-overview
