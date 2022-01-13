@@ -88,12 +88,13 @@ export const CamperInfo: React.FC<Props> = (props: Props) => {
                 <Button variant="primary" className="backButton" href="/#/parent"> Back to Dashboard </Button>
             </div>
             <body style={{textAlign: "center"}}>
+                <br/>
                 <h1>{values.firstName} {values.lastName}</h1>
                 <br/>
                 <Button style={{backgroundColor: "#3E9724"}} variant="primary" href="/#/CamperForm"> Edit Camper </Button>
             </body>
 
-            <div style={{marginLeft: "20%", marginRight: "20%"}}>
+            <div style={{marginLeft: "20%", marginRight: "20%", marginTop: "3%"}}>
                 <table>  <h4>Camper Info</h4>
                     <tr>
                         <td>Gender</td>

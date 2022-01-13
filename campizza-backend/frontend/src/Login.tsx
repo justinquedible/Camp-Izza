@@ -56,7 +56,7 @@ const Login: React.FC<loginDetailsProp> = () => {
 
             <div className={"login-form"}>
                 <h3>
-                    Welcome Back
+                    Welcome Back!
                 </h3>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group controlId={"Email"}>
