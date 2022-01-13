@@ -63,9 +63,10 @@ Ex. `curl -X POST http://localhost:8080/someAPI -d "camper=camper1&pass=pass"`
 - You can also install a tool such as Postman that is an environment to send http requests from
     -  I prefer to use Postman because it's easy to navigate and edit request in a saved environment
 
-## Tips for deploying to Google App Engine
+## Steps for deploying to Google App Engine
+- In `src/API_URL/api_url.tsx`, make sure `api_url="https://rugged-sunbeam-229808.uc.r.appspot.com/"`
 - Run `mvn package` (it automatically runs `npm run build`)
-- Install and Configure Google Cloud Code or Run `mvn appengine:deploy`
+- Run `mvn appengine:deploy` or Install and Configure Google Cloud Code
 - When deploying ensure that no global variables are being passed to JAR 
     -  The jar will automatically connect to CloudSql while in app engine
     - Be cautious of setUpProxy when testing React locally
