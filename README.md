@@ -1,9 +1,8 @@
 **Camp Izza for our Senior Design Project** \
 Some of the changes I’m hoping you can implement within the Camp Izza system are:
-    _Integrate an attendance system that can be accessed by admin and counselors alike. \
-    Generate groups based on registered campers with options for customization. \
-    Add a counselor dashboard for Admin to interact with and manage relevant Staffing information._
-
+_Integrate an attendance system that can be accessed by admin and counselors alike. \
+ Generate groups based on registered campers with options for customization. \
+ Add a counselor dashboard for Admin to interact with and manage relevant Staffing information._
 
 ## Available React Scripts
 
@@ -39,22 +38,27 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 In the project directory, you can run:
 
 ### `mvn clean install`
+
 This will clean the target(clearing out old compiled files) and then build the project based on the POM file.
-Run this command when you want to build up everything from scratch (if you removed a resource or something like that). 
+Run this command when you want to build up everything from scratch (if you removed a resource or something like that).
 
 ### `mvn install`
+
 Build the project based on the POM file.
 
 ### `mvn spring-boot:run -X`
-Starts running spring-boot application with verbose console output. 
+
+Starts running spring-boot application with verbose console output.
 I like to include the -X flag because it showed me logging information that helped me debug and fix a lot of config errors.
 
 Open http://localhost:8080 to send your GET and POST requests
 
 ## Troubleshooting
+
 - Error when running springboot: https://cloud.google.com/docs/authentication/getting-started#cloud-console
 
 ## Connecting to Google Cloud SQL to MySQL Workbench
+
 - On Google Cloud Platform, open Camp Izza project
 - Go to SQL dashboard
 - Click "campizzatest"
@@ -63,18 +67,24 @@ Open http://localhost:8080 to send your GET and POST requests
 - Username and password can be found in documentation
 
 ## Tips for Sending Requests Between Cloud SQL and local spring-boot
+
 - There are many connectivity options to choose from:\
-https://cloud.google.com/sql/docs/mysql/connect-overview
+  https://cloud.google.com/sql/docs/mysql/connect-overview
 - Make sure the client has proper authorization of at least Cloud SQL Editor
 - When sending requests, you can use curl through cmd\
-Ex. `curl -X POST http://localhost:8080/someAPI -d "camper=camper1&pass=pass"`
+  Ex. `curl -X POST http://localhost:8080/someAPI -d "camper=camper1&pass=pass"`
 - You can also install a tool such as Postman that is an environment to send http requests from
-    -  I prefer to use Postman because it's easy to navigate and edit request in a saved environment
+  - I prefer to use Postman because it's easy to navigate and edit request in a saved environment
 
 ## Steps for deploying to Google App Engine
+
 - In `src/API_URL/api_url.tsx`, make sure `api_url="https://rugged-sunbeam-229808.uc.r.appspot.com/"`
 - Run `mvn package` (it automatically runs `npm run build`)
 - Run `mvn appengine:deploy` or Install and Configure Google Cloud Code
-- When deploying ensure that no global variables are being passed to JAR 
-    -  The jar will automatically connect to CloudSql while in app engine
-    - Be cautious of setUpProxy when testing React locally
+- When deploying ensure that no global variables are being passed to JAR
+  - The jar will automatically connect to CloudSql while in app engine
+  - Be cautious of setUpProxy when testing React locally
+
+## Deploying to Firebase
+
+- In `Camp-Izza/campizza-backend/frontend` directory, run `firebase deploy --only hosting:campizza-v2`
