@@ -18,11 +18,14 @@ export default function NavBar() {
     return unsubscribe;
   }, [auth]);
 
-  const handleSignOut = async (e: { preventDefault: () => void }) => {
-    e.preventDefault();
+  const handleChangePassword = () => {
+    window.location.href = "/#/updatePassword";
+  };
+
+  const handleSignOut = () => {
+    window.location.href = "/#/login";
     auth.signOut();
     console.log("signed out");
-    window.location.href = "/#/login";
   };
 
   return (
@@ -47,7 +50,7 @@ export default function NavBar() {
           </Nav.Link>
           {user ? (
             <NavDropdown title={user.email} id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Change Password</NavDropdown.Item>
+              <NavDropdown.Item onClick={handleChangePassword}>Change Password</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item onClick={handleSignOut}>Sign Out</NavDropdown.Item>
             </NavDropdown>

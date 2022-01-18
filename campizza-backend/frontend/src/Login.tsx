@@ -43,6 +43,7 @@ export default function Login() {
         console.log("logged in");
       })
       .catch((error) => {
+        setIsLoading(false);
         console.log(error);
         alert(error.code);
       });

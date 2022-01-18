@@ -27,6 +27,7 @@ export default function SignUp() {
           });
         })
         .catch((error) => {
+          setIsLoading(false);
           let errorMessage = error.message;
           alert(errorMessage);
         });
