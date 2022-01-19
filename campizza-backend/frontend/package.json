@@ -19,6 +19,7 @@
     "bootstrap": "^4.6.0",
     "firebase": "^9.6.3",
     "http-proxy-middleware": "^1.0.6",
+    "intl-tel-input": "^17.0.15",
     "jquery": "^3.5.1",
     "linkstate": "^2.0.1",
     "moment": "^2.29.1",
@@ -61,5 +62,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/intl-tel-input": "^17.0.4"
   }
 }

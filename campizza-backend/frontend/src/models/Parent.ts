@@ -1,6 +1,6 @@
 import { db } from "../App";
-import { setDoc, doc } from "firebase/firestore";
-import Household from "./Household";
+import { doc, getDoc, setDoc } from "firebase/firestore";
+import { Household } from "./Household";
 
 type Parent = {
   uid: string;
@@ -14,5 +14,13 @@ const addParent = async (parent: Parent) => {
   await setDoc(doc(db, "userRoles", uid), { role: "parent" });
 };
 
+const getParent = async (uid: string) => {
+  const docSnap = await getDoc(doc(db, "parents", uid));
+  if (docSnap.exists()) {
+    return { uid, ...docSnap.data() } as Parent;
+  }
+  return null;
+};
+
 export type { Parent };
-export { addParent };
+export { addParent, getParent };

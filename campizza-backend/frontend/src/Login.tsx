@@ -74,7 +74,7 @@ export default function Login() {
           </Form.Group>
 
           <Button variant="outline-primary" className="login-button" type="submit" disabled={isLoading}>
-            {isLoading ? "Signing In" : "Sign In"}
+            {isLoading ? "Signing In..." : "Sign In"}
           </Button>
         </Form>
         <br />
