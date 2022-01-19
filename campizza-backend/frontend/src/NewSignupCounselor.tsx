@@ -1,4 +1,4 @@
-// Page for parents to fill out their child's camper form
+// Page for couselors to signup with their information
 
 import React from "react";
 import { Button, Container } from "react-bootstrap";
@@ -65,33 +65,38 @@ export const CounselorForm: React.FC<Props> = () => {
     medical_treatment_names: "",
     immunizations: "-- Select --",
     tetanus_date: "",
-
+    emergency_contact_name_1: "",
+    emergency_contact_phone_1: "",
+    emergency_contact_relation_1: "",
+    emergency_contact_name_2: "",
+    emergency_contact_phone_2: "",
+    emergency_contact_relation_2: "",
     userID: null,
   });
 
   React.useEffect(() => {
-    const currentUser = AuthService.currentUser();
-    let user_id = currentUser.id;
-    let name: string | null;
-    let named: string | null;
-    name = localStorage.getItem("currentChild");
-    if (typeof name == "string" && name !== "") {
-      named = name;
-      CamperService.getInfo(named, user_id).then((response) => {
-        if (response.status === 200) {
-          setValues(response.data);
-          setInitFirstName(response.data.firstName);
-          setInitLastName(response.data.lastName);
-        } else if (response.status === 400) {
-          return false;
-        }
-      });
-    }
+    // const currentUser = AuthService.currentUser();
+    // let user_id = currentUser.id;
+    // let name: string | null;
+    // let named: string | null;
+    // name = localStorage.getItem("currentChild");
+    // if (typeof name == "string" && name !== "") {
+    //   named = name;
+    //   CamperService.getInfo(named, user_id).then((response) => {
+    //     if (response.status === 200) {
+    //       setValues(response.data);
+    //       setInitFirstName(response.data.firstName);
+    //       setInitLastName(response.data.lastName);
+    //     } else if (response.status === 400) {
+    //       return false;
+    //     }
+    //   });
+    // }
   }, []);
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
-    const currentUser = AuthService.currentUser();
-    let user_id = currentUser.id;
+    // const currentUser = AuthService.currentUser();
+    // let user_id = currentUser.id;
     e.preventDefault();
     // const {firstName, lastName, genderEnum, dobDate, doctorName, doctorPhone, insurance, policy_holder, illnesses, illnesses_names, allergy_names,
     //     allergies, medication, medication_names, activities, activity_names, medical_treatments, medical_treatment_names,
@@ -114,27 +119,20 @@ export const CounselorForm: React.FC<Props> = () => {
         <br />
         <Container className="Text-Form">
           <form onSubmit={handleSubmit}>
-            <Button
-              variant="primary"
-              className="backButton"
-              href="/#/CounselorInfo"
-            >
-              Back
+            <Button variant="primary" className="backButton" href="/#/login">
+              Back to Log In
             </Button>
             <br />
             <br />
-            <h3> Edit Profile </h3>
+            <h3> Counselor Sign Up </h3>
             <br />
             <p>
               <b>* </b>Indicates a mandatory field.
             </p>
-            <p>Note: Please email omarezz@gmail.com to change camper's name.</p>
             <h5> Counselor Info </h5>
-
             <p>
               <b>* </b>First Name
             </p>
-
             {initFirstName === "" ? (
               <input
                 type="text2"
@@ -148,11 +146,9 @@ export const CounselorForm: React.FC<Props> = () => {
                 {values.firstName}
               </p>
             )}
-
             <p>
               <b>* </b>Last Name
             </p>
-
             {initLastName === "" ? (
               <input
                 type="text2"
@@ -166,7 +162,6 @@ export const CounselorForm: React.FC<Props> = () => {
                 {values.lastName}
               </p>
             )}
-
             <p>
               <b>* </b>Gender
             </p>
@@ -180,7 +175,6 @@ export const CounselorForm: React.FC<Props> = () => {
               <option value="FEMALE">Female</option>
               <option value="OTHER">Other</option>
             </select>
-
             <p>
               <b>* </b>Date of Birth
             </p>
@@ -190,7 +184,6 @@ export const CounselorForm: React.FC<Props> = () => {
               onChange={handleChange("dobDate")}
               defaultValue={values.dobDate}
             />
-
             <p>
               <b>* </b>Phone Number
             </p>
@@ -201,7 +194,6 @@ export const CounselorForm: React.FC<Props> = () => {
               defaultValue={values.phone}
               placeholder={"000-000-0000"}
             />
-
             <p>
               <b>* </b>Alternative Phone Number
             </p>
@@ -212,7 +204,6 @@ export const CounselorForm: React.FC<Props> = () => {
               defaultValue={values.altPhone}
               placeholder={"000-000-0000"}
             />
-
             <p>
               <b>* </b>Email
             </p>
@@ -222,9 +213,7 @@ export const CounselorForm: React.FC<Props> = () => {
               onChange={handleChange("email")}
               defaultValue={values.email}
             />
-
             <h5> Health Info </h5>
-
             <p>
               <b>* </b>Primary Physician's Name
             </p>
@@ -263,9 +252,7 @@ export const CounselorForm: React.FC<Props> = () => {
               defaultValue={values.policy_holder}
             />
             <br />
-
             <h5> Health Questionnaire </h5>
-
             <p>
               <b>* </b>Do you have any chronic conditions or illnesses? If{" "}
               <u>yes</u>, please list conditions.
@@ -286,7 +273,6 @@ export const CounselorForm: React.FC<Props> = () => {
               onChange={handleChange("illnesses_names")}
               defaultValue={values.illnesses_names}
             />
-
             <p>
               <b>* </b>Do you have any allergies and/or dietary restrictions? If{" "}
               <u>yes</u>, please list restrictions.
@@ -307,7 +293,6 @@ export const CounselorForm: React.FC<Props> = () => {
               onChange={handleChange("allergy_names")}
               defaultValue={values.allergy_names}
             />
-
             <p>
               <b>* </b>Will you be taking any medication at camp? If <u>yes</u>,
               please list medications.
@@ -328,7 +313,6 @@ export const CounselorForm: React.FC<Props> = () => {
               onChange={handleChange("medication_names")}
               defaultValue={values.medication_names}
             />
-
             <p>
               <b>* </b>Are there any camp activities that you cannot participate
               in? If <u>yes</u>, please list activities.
@@ -349,7 +333,6 @@ export const CounselorForm: React.FC<Props> = () => {
               onChange={handleChange("activity_names")}
               defaultValue={values.activity_names}
             />
-
             <p>
               <b>* </b>Have you undergone any medical treatments? If <u>yes</u>,
               please list treatments.
@@ -370,7 +353,6 @@ export const CounselorForm: React.FC<Props> = () => {
               onChange={handleChange("medical_treatment_names")}
               defaultValue={values.medical_treatment_names}
             />
-
             <p>
               <b>* </b>Have you received all current immunizations?
             </p>
@@ -383,7 +365,6 @@ export const CounselorForm: React.FC<Props> = () => {
               <option value="Yes">Yes</option>
               <option value="No">No</option>
             </select>
-
             <p>
               <b>* </b>What is the date (approximate if necessary) of your last
               tetanus shot?
@@ -394,15 +375,88 @@ export const CounselorForm: React.FC<Props> = () => {
               onChange={handleChange("tetanus_date")}
               defaultValue={values.tetanus_date}
             />
-
+            <h5> Emergency Contact </h5>
+            <p>
+              <b>* </b>Emergency Contact Name #1
+            </p>
+            <input
+              type="text"
+              required
+              onChange={handleChange("emergency_contact_name_1")}
+              defaultValue={values.emergency_contact_name_1}
+            />
+            <p>
+              <b>* </b>Emergency Contact's Phone Number #1
+            </p>
+            <input
+              type="text"
+              required
+              onChange={handleChange("emergency_contact_phone_1")}
+              defaultValue={values.emergency_contact_phone_1}
+              placeholder={"000-000-0000"}
+            />
+            <p>
+              <b>* </b>Relationship to Emergency Contact #1
+            </p>
+            <input
+              type="text"
+              required
+              onChange={handleChange("emergency_contact_relation_1")}
+              defaultValue={values.emergency_contact_relation_1}
+            />
+            <p>
+              <b>* </b>Emergency Contact Name #2
+            </p>
+            <input
+              type="text"
+              required
+              onChange={handleChange("emergency_contact_name_2")}
+              defaultValue={values.emergency_contact_name_2}
+            />
+            <p>
+              <b>* </b>Emergency Contact's Phone Number #2
+            </p>
+            <input
+              type="text"
+              required
+              onChange={handleChange("emergency_contact_phone_2")}
+              defaultValue={values.emergency_contact_phone_2}
+              placeholder={"000-000-0000"}
+            />
+            <p>
+              <b>* </b>Relationship to Emergency Contact #2
+            </p>
+            <input
+              type="text"
+              required
+              onChange={handleChange("emergency_contact_relation_2")}
+              defaultValue={values.emergency_contact_relation_2}
+            />
+            <p></p>
             <br />
             <br />
-
-            <div className="center">
-              <Button variant="success" className="buttonTxt" type="submit">
-                {" "}
-                Save{" "}
+            <div
+              className="center"
+              style={{ marginLeft: "30%", marginRight: "30%" }}
+            >
+              <Button
+                variant="outline-primary"
+                className="login-button"
+                type="submit"
+                href="/#/counselor/pending"
+                onClick={handleSubmit}
+              >
+                Sign Up
               </Button>
+              <p className="fineText">
+                Upon sign up as a counselor, your account will be pending until
+                admin approval is received. If admin approval is not received,
+                your account will be deleted. Please contact Camp Izza for
+                further details.
+              </p>
+              <p className="fineText">
+                Already a user? <a href="/#/login"> Log In </a>
+              </p>
             </div>
             <br />
             <hr />

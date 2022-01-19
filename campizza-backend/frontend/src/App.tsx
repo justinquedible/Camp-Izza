@@ -20,7 +20,7 @@ import BonusCamper from "./BonusCamper";
 import Parent from "./Parent";
 import Login from "./Login";
 import Signup from "./Signup";
-import SignUpCounselor from "./SignupCounselor";
+import SignUpCounselor from "./NewSignupCounselor";
 import Pending from "./Pending";
 import ResetPassword from "./ResetPassword";
 import Household from "./HouseholdForm";

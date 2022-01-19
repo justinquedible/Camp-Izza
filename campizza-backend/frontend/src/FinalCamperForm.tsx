@@ -164,7 +164,7 @@ export const FinalCamperForm: React.FC<Props> = () => {
                     <h3> Edit Camper </h3>
                     <br/>
                     <p><b>* </b>Indicates a mandatory field.</p>
-                    <p>Note: Please email omarezz@gmail.com to change camper's name</p>
+                    <p>Note: Please email omarezz@gmail.com to change camper's name.</p>
                     <h5> Camper Info </h5>
 
                     <p><b>* </b>First Name</p>
