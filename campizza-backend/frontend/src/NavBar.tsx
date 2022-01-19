@@ -39,11 +39,14 @@ export default function NavBar() {
           <Nav.Link id="navbar-link" href="https://www.campizza.com/" style={navBarStyle}>
             Home
           </Nav.Link>
-          <Nav.Link href="https://www.campizza.com/calendar" style={navBarStyle}>
+          <Nav.Link href="https://www.campizza.com/activities" style={navBarStyle}>
             Activities
           </Nav.Link>
-          <Nav.Link href="https://www.campizza.com/camp-fees" style={navBarStyle}>
-            Fees
+          <Nav.Link href="https://www.campizza.com/about-us" style={navBarStyle}>
+            About Us
+          </Nav.Link>
+          <Nav.Link href="https://www.campizza.com/faq" style={navBarStyle}>
+            FAQ
           </Nav.Link>
           <Nav.Link href="https://www.campizza.com/contact" style={navBarStyle}>
             Contact
