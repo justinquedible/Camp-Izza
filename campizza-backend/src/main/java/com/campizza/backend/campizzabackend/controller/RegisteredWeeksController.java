@@ -254,7 +254,9 @@ public class RegisteredWeeksController {
     @GetMapping("/getAllCampers/")
     public ResponseEntity<Object> getAllCampers() {
         Calendar cal = Calendar.getInstance();
-        Integer currentYear = cal.get(Calendar.YEAR);
+        Integer currentYear = cal.get(2021);
+        System.out.println(Calendar.YEAR);
+        System.out.println(currentYear);
         // System.out.println("All campers");
         // System.out.println(currentYear);
 

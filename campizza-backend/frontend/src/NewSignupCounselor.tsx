@@ -314,8 +314,9 @@ export const CounselorForm: React.FC<Props> = () => {
               defaultValue={values.medication_names}
             />
             <p>
-              <b>* </b>Are there any camp activities that you cannot participate
-              in? If <u>yes</u>, please list activities.
+              <b>* </b>Do you require any accommodations in order to perform the
+              duties of this job? If <u>yes</u>, please list the accommodations
+              you require.
             </p>
             <select
               className="sameRow"
@@ -334,27 +335,9 @@ export const CounselorForm: React.FC<Props> = () => {
               defaultValue={values.activity_names}
             />
             <p>
-              <b>* </b>Have you undergone any medical treatments? If <u>yes</u>,
-              please list treatments.
-            </p>
-            <select
-              className="sameRow"
-              required
-              onChange={handleChange("medical_treatments")}
-              value={values.medical_treatments}
-            >
-              <option value=""> -- Select --</option>
-              <option value="Yes">Yes</option>
-              <option value="No">No</option>
-            </select>
-            <input
-              className="sameRow"
-              type="text"
-              onChange={handleChange("medical_treatment_names")}
-              defaultValue={values.medical_treatment_names}
-            />
-            <p>
-              <b>* </b>Have you received all current immunizations?
+              <b>* </b>Have you received all required immunizations? Please see
+              the job description for a detailed list of the required
+              immunizations.
             </p>
             <select
               required
@@ -365,16 +348,6 @@ export const CounselorForm: React.FC<Props> = () => {
               <option value="Yes">Yes</option>
               <option value="No">No</option>
             </select>
-            <p>
-              <b>* </b>What is the date (approximate if necessary) of your last
-              tetanus shot?
-            </p>
-            <input
-              type="date"
-              required
-              onChange={handleChange("tetanus_date")}
-              defaultValue={values.tetanus_date}
-            />
             <h5> Emergency Contact </h5>
             <p>
               <b>* </b>Emergency Contact Name #1
