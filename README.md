@@ -1,3 +1,5 @@
+# NOTE: This repository is no longer in use. We have migrated to the following repo: [Camp-Izza-V2](https://github.com/justinquedible/Camp-Izza-V2).
+
 **Camp Izza for our Senior Design Project** \
 Some of the changes I’m hoping you can implement within the Camp Izza system are:
     _Integrate an attendance system that can be accessed by admin and counselors alike. \
